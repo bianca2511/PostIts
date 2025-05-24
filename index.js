@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require("express");
 const app = express();
 const port = 3000;
@@ -21,7 +23,6 @@ app.use((req, res, next) => {
     let thisWeekStart = getCurrentWeekStart();
     console.log("This week is: ", thisWeekStart);
     if (thisWeekStart !== currentStart) {
-        notes = new Map();
         currentStart = thisWeekStart;
         console.log("New week ahead :)");
     }
