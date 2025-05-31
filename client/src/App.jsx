@@ -1,15 +1,14 @@
 import './styles/App.css'
+import Board from './components/Board.jsx'
 
 function App() {
 
-  return (
-    <>
-      <div>
-       Hello World :D
-      </div>
-      
-    </>
-  )
+    return (
+        <>
+            <Board></Board>
+
+        </>
+    )
 }
 
 export default App

@@ -1,0 +1,13 @@
+.note {
+    width: 20em;
+    height: 20em;
+    background-color: aliceblue;
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.note-content {
+    text-align: left;
+    margin: 1em;
+}
