@@ -1,10 +1,11 @@
 .note {
     width: 20em;
     height: 20em;
-    background-color: aliceblue;
+    background-color:darkorange;
     color: black;
     display: flex;
     flex-direction: column;
+    margin-block: 1em;
 }
 
 .note-content {

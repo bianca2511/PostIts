@@ -21,9 +21,7 @@ export default function Board() {
             .catch((error) => {
                 console.error("Fetch error: ", error);
             });
-
     }, []);
-
 
     return (
         <div className='note-board'>
