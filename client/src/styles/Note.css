@@ -1,14 +1,16 @@
 .note {
-    width: 20em;
-    height: 20em;
+    width: 18em;
+    aspect-ratio: 1/1;
     background-color:rgb(255, 35, 152);
     color: black;
     display: flex;
     flex-direction: column;
     margin-block: 1em;
+    padding: 1em;
+    margin: 1em;
 }
 
 .note-content {
     text-align: left;
-    margin: 1em;
+    margin: 0.5em;
 }
