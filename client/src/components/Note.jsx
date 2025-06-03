@@ -3,7 +3,8 @@ import '../styles/Note.css'
 function Note({username, content}) {
     return(
         <div className="note">
-            <h3 className="note-author">{username}</h3>
+            <div className='note-pin'></div>
+            <h2 className="note-author">{username}</h2>
             <p className="note-content">{content}</p>
         </div>
     )
