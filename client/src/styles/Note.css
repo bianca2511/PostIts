@@ -1,16 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=DynaPuff:wght@400..700&family=Fuzzy+Bubbles:wght@400;700&display=swap');
+
 .note {
     width: 18em;
     aspect-ratio: 1/1;
-    background-color:rgb(255, 35, 152);
+    background-color: rgb(255, 35, 152);
     color: black;
     display: flex;
     flex-direction: column;
-    margin-block: 1em;
-    padding: 1em;
     margin: 1em;
+    padding: 1em;
+}
+
+.note-author {
+    font-family: "Fuzzy Bubbles", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    margin-block: 0.5em;
 }
 
 .note-content {
     text-align: left;
-    margin: 0.5em;
+    text-align: justify;
+    margin-block: 0.5em;
 }

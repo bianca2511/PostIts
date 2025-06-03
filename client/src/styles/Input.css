@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+SC:ital,wght@0,100..900;1,100..900&family=DynaPuff:wght@400..700&family=Fuzzy+Bubbles:wght@400;700&display=swap');
+
 .submit-button {
   color: black;
   background-color: rgb(115, 255, 9);
@@ -19,10 +21,15 @@
 
 .input-box {
     padding: 2em;
-    aspect-ratio: 1/1;
-    width: fit-content;
+    height:min-content;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     background-color: khaki;
+}
+
+.input-prompt {
+  font-family: "Fuzzy Bubbles", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
