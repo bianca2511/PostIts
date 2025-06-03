@@ -1,6 +1,8 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import Note from './Note'
+import Input from './Input';
+import '../styles/Board.css'
 
 export default function Board() {
     const [notes, setNotes] = useState({});
@@ -21,13 +23,16 @@ export default function Board() {
             .catch((error) => {
                 console.error("Fetch error: ", error);
             });
-    }, []);
+    }, []); 
 
     return (
         <div className='note-board'>
+            <Input></Input>
+            <div className='notes'>
             {Object.entries(notes).map(([username, { content }]) => (
                 <Note key={username} username={username} content={content}></Note>
             ))}
+            </div>
         </div>
     );
 }

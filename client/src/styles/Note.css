@@ -1,7 +1,7 @@
 .note {
     width: 20em;
     height: 20em;
-    background-color:darkorange;
+    background-color:rgb(255, 35, 152);
     color: black;
     display: flex;
     flex-direction: column;

@@ -1,0 +1,10 @@
+.note-board {
+    display:flex;
+    flex-direction: row;
+    justify-content:space-between;
+    background-image: url(../assets/wood-board-background.jpg);
+    background-size: 80%;
+    border-width: 2em;
+    border-style: solid;
+    border-image: repeating-linear-gradient(30deg, #72430d, #b6621e, #763602 20px) 60;
+}

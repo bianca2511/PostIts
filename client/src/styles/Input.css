@@ -1,0 +1,28 @@
+.submit-button {
+  color: white;
+  background-color: orange;
+  text-align: center;
+  padding:0.5em 0.8em;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1em;
+  margin: 4px 2px;
+  box-shadow: 0px 3px 5px -2px #FFFFFF;
+}
+
+.input-field {
+    background-color: white;
+    color: black;
+    padding: 1em;
+    resize: none;
+    height: auto;
+}
+
+.input-box {
+    background-color: coral;
+    padding: 2em;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
