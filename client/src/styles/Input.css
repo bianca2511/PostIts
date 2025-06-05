@@ -50,14 +50,18 @@
   border: 2px solid transparent;
   transition: border 0.5s ease-in-out;
   margin-block: 1em;
+  position: relative;
 }
 
 .color-circle.selected {
-  border: 2px solid rgb(33, 30, 30);
+  transform: scale(1.4);
+  transition: transform 0.2s ease;
+  box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.698);
 }
 
+
 .pink {
-  background-color: pink;
+  background-color: magenta;
 }
 
 .orange {
@@ -77,5 +81,5 @@
 }
 
 .purple {
-  background-color: lavender;
+  background-color: violet;
 }
