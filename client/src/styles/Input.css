@@ -36,22 +36,46 @@
   font-style: normal;
 }
 
+.color-picker {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 .color-circle {
-  width:2em;
-  height:2em;
-  border-radius:50%;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
   cursor: pointer;
   border: 2px solid transparent;
   transition: border 0.2s ease-in-out;
+  margin-block: 1em;
 }
 
 .color-circle.selected {
   border: 2px solid black;
 }
 
-.pink {background-color: pink;}
-.orange {background-color: orange;}
-.yellow {background-color: yellow;}
-.green {background-color: yellowgreen;}
-.blue {background-color: lightskyblue;}
-.purple {background-color: lavender;}
+.pink {
+  background-color: pink;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.green {
+  background-color: yellowgreen;
+}
+
+.blue {
+  background-color: lightskyblue;
+}
+
+.purple {
+  background-color: lavender;
+}
