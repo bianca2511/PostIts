@@ -35,3 +35,23 @@
   font-weight: 700;
   font-style: normal;
 }
+
+.color-circle {
+  width:2em;
+  height:2em;
+  border-radius:50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border 0.2s ease-in-out;
+}
+
+.color-circle.selected {
+  border: 2px solid black;
+}
+
+.pink {background-color: pink;}
+.orange {background-color: orange;}
+.yellow {background-color: yellow;}
+.green {background-color: yellowgreen;}
+.blue {background-color: lightskyblue;}
+.purple {background-color: lavender;}
