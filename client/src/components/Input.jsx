@@ -26,7 +26,7 @@ export default function Input() {
         }
     }
 
-    // const [color, setColor] = useState('pink');
+    const [selectedColor, setSelectedColor] = useState('pink');
 
     return (
         <div className='input-box'>
@@ -36,8 +36,8 @@ export default function Input() {
                 {['pink', 'orange', 'yellow', 'green', 'blue', 'purple'].map(color => (
                     <div
                         key={color}
-                        className={`color-circle ${color}`}
-                        // onClick={setColor(color)}
+                        className={`color-circle ${color} ${selectedColor === color ? 'selected' : ''}`}
+                        onClick={() => setSelectedColor(color)} 
                     ></div>
                 ))}
             </div>
