@@ -16,6 +16,10 @@
   background-color: hsl(from var(--submit-button-color) h s calc(0.9*l));
 }
 
+.submit-button:active {
+  transform: scale(1.01);
+}
+
 .input-field {
   background-color: white;
   color: black;
