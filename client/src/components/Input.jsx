@@ -30,8 +30,8 @@ export default function Input() {
     return (
         <div className='input-box'>
             <h2 className='input-prompt'>How was your week, {username}?</h2>
-            <textarea rows="15" cols="45" placeholder="Today was a great day!" autoFocus value={content} onChange={(e) => setContent(e.target.value)} className='input-field'></textarea>
             <input placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value)} className='input-field'></input>
+            <textarea rows="15" cols="45" placeholder="Today was a great day!" autoFocus value={content} onChange={(e) => setContent(e.target.value)} className='input-field'></textarea>
             <div className='color-picker'>
                 {['pink', 'orange', 'yellow', 'green', 'blue', 'purple'].map(color => (
                     <div
