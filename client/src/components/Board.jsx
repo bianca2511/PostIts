@@ -7,7 +7,7 @@ import '../styles/Board.css'
 export default function Board() {
     const [notes, setNotes] = useState({});
 
-    useEffect(() => {
+    const reloadNotes = () => {
         fetch('http://localhost:3000/api/notes')
             .then((res) => {
                 if (!res.ok) {
@@ -23,11 +23,13 @@ export default function Board() {
             .catch((error) => {
                 console.error("Fetch error: ", error);
             });
-    }, []);
+    }
+
+    useEffect(reloadNotes, []);
 
     return (
         <div className='note-board'>
-            <Input></Input>
+            <Input reloadNotes={reloadNotes}></Input>
             <div className='notes'>
                 {Object.entries(notes).map(([username, { content, color, submissionDate }]) => (
                     <Note key={username} username={username} content={content} color={color} submissionDate={submissionDate}></Note>

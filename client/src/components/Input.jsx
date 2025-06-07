@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import '../styles/Input.css'
 
-export default function Input() {
+export default function Input({reloadNotes}) {
 
     const [content, setContent] = useState("");
     const [username, setUsername] = useState("");
+    const [selectedColor, setSelectedColor] = useState('pink');
 
     const submitText = async () => {
         const submissionDate = new Date();
@@ -20,12 +21,12 @@ export default function Input() {
             const result = await response;
             console.log("Successfully sent", result);
             setContent("");
+            reloadNotes();
         } else {
             console.error("Submission Failed, try again!");
         }
     }
 
-    const [selectedColor, setSelectedColor] = useState('pink');
 
     return (
         <div className='input-box'>
