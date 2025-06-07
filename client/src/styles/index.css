@@ -9,9 +9,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.html, body {
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
   margin: 0;
   background-color: black;
 }
 
-
+html,
+body,
+#root,
+.note-board {
+  min-height: 100dvh;
+}
