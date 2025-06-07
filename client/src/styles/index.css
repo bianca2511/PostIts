@@ -12,8 +12,10 @@
   --color-orange: rgb(255, 184, 98);
   --color-yellow: rgb(209, 245, 111);
   --color-green: rgb(152, 254, 183);
-  --color-blue: skyblue;
+  --color-blue: rgb(139, 212, 240);
   --color-purple: rgb(213, 145, 255);
+  --input-bg-color: rgb(255, 254, 250);
+
 }
 
 * {
