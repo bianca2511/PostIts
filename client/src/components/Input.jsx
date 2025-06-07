@@ -14,7 +14,7 @@ export default function Input() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ username: "zach", content: content, color:selectedColor })
+            body: JSON.stringify({ username: "zach3", content: content, color:selectedColor })
         });
 
         if (response.ok) {

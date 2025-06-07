@@ -1,18 +1,24 @@
 .note-board {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     background-image: url(../assets/wood-board-background.jpg);
     background-size: cover;
     /* border-image: repeating-linear-gradient(30deg, #72430d, #b6621e, #763602 20px) 60; */
-    border: 2em solid transparent; /* Needed for border-image to show */
+    border: 2em solid transparent;
+    /* Needed for border-image to show */
     border-image: url(../assets/wood-texture.jpg);
-    border-image-slice: 100; 
+    border-image-slice: 100;
 }
 
 .notes {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
+    justify-content:space-evenly;
+    /* align-items: center; */
+    
+    margin-block-end: auto;
+    margin-inline: auto;
+    /* make the notes not stretch vertically*/
 }
