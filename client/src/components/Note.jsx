@@ -2,8 +2,6 @@ import '../styles/Note.css'
 
 function Note({ username, content, color, submissionDate }) {
 
-
-    console.log(typeof submissionDate);
     const formattedDate = new Intl.DateTimeFormat('en-NL', {
         dateStyle: "full"
     }).format(new Date(submissionDate));
