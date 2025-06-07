@@ -29,8 +29,8 @@ export default function Board() {
         <div className='note-board'>
             <Input></Input>
             <div className='notes'>
-            {Object.entries(notes).map(([username, { content }]) => (
-                <Note key={username} username={username} content={content}></Note>
+            {Object.entries(notes).map(([username, { content, color }]) => (
+                <Note key={username} username={username} content={content} color={color}></Note>
             ))}
             </div>
         </div>

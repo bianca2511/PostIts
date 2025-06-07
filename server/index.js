@@ -41,7 +41,8 @@ app.get("/api/notes", (req, res) => {
         const notes = {};
         rows.forEach(row => {
             notes[row.username] = {
-                content: row.content
+                content: row.content,
+                color: row.color
             };
         });
 
@@ -52,17 +53,19 @@ app.get("/api/notes", (req, res) => {
 
 // Post a new note
 app.post("/api/notes", (req, res) => {
-    let { username, content } = req.body;
+    let { username, content, color } = req.body;
+    console.log("Received:", { username, content, color });
+
 
     if (!username || !content || username === "" || content === "") {
         return res.status(400).json({ error: "Missing username or content" });
     }
 
     const insertQuery = `
-  INSERT INTO notes (username, content)
-  VALUES (?, ?)
+  INSERT INTO notes (username, content, color)
+  VALUES (?, ?, ?)
 `;
-    db.run(insertQuery, [username, content], function (err) {
+    db.run(insertQuery, [username, content, color], function (err) {
         if (err) {
             console.error('DB error:', err);
             return res.status(500).json({ error: 'Database error' });

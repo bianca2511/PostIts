@@ -3,7 +3,7 @@
 .note {
     width: 18em;
     aspect-ratio: 1/1;
-    background-color: rgb(247, 63, 161);
+    /* background-color: rgb(247, 63, 161); */
     color: black;
     display: flex;
     flex-direction: column;
@@ -39,4 +39,28 @@
     margin-block: 0.5em;
     font-family: "Inter", sans-serif;
     font-weight: 400;
+}
+
+.pink {
+  background-color: magenta;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.green {
+  background-color: yellowgreen;
+}
+
+.blue {
+  background-color: lightskyblue;
+}
+
+.purple {
+  background-color: violet;
 }
