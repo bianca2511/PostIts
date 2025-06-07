@@ -1,20 +1,18 @@
 import { useState } from 'react'
 import '../styles/Input.css'
 
-
-
 export default function Input() {
 
     const [content, setContent] = useState("");
 
     const submitText = async () => {
-
+        const submissionDate = new Date();
         const response = await fetch("http://localhost:3000/api/notes", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ username: "zach3", content: content, color:selectedColor })
+            body: JSON.stringify({ username: "zach3", content: content, color: selectedColor, submissionDate: submissionDate })
         });
 
         if (response.ok) {
@@ -37,7 +35,7 @@ export default function Input() {
                     <div
                         key={color}
                         className={`color-circle ${color} ${selectedColor === color ? 'selected' : ''}`}
-                        onClick={() => setSelectedColor(color)} 
+                        onClick={() => setSelectedColor(color)}
                     ></div>
                 ))}
             </div>

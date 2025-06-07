@@ -42,7 +42,8 @@ app.get("/api/notes", (req, res) => {
         rows.forEach(row => {
             notes[row.username] = {
                 content: row.content,
-                color: row.color
+                color: row.color,
+                submissionDate: row.date
             };
         });
 
@@ -53,8 +54,8 @@ app.get("/api/notes", (req, res) => {
 
 // Post a new note
 app.post("/api/notes", (req, res) => {
-    let { username, content, color } = req.body;
-    console.log("Received:", { username, content, color });
+    let { username, content, color, submissionDate } = req.body;
+    console.log("Received:", { username, content, color, submissionDate });
 
 
     if (!username || !content || username === "" || content === "") {
@@ -62,10 +63,10 @@ app.post("/api/notes", (req, res) => {
     }
 
     const insertQuery = `
-  INSERT INTO notes (username, content, color)
-  VALUES (?, ?, ?)
-`;
-    db.run(insertQuery, [username, content, color], function (err) {
+        INSERT INTO notes (username, content, color, date)
+        VALUES (?, ?, ?, ?)
+        `;
+    db.run(insertQuery, [username, content, color, submissionDate], function (err) {
         if (err) {
             console.error('DB error:', err);
             return res.status(500).json({ error: 'Database error' });

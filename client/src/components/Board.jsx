@@ -23,15 +23,15 @@ export default function Board() {
             .catch((error) => {
                 console.error("Fetch error: ", error);
             });
-    }, []); 
+    }, []);
 
     return (
         <div className='note-board'>
             <Input></Input>
             <div className='notes'>
-            {Object.entries(notes).map(([username, { content, color }]) => (
-                <Note key={username} username={username} content={content} color={color}></Note>
-            ))}
+                {Object.entries(notes).map(([username, { content, color, submissionDate }]) => (
+                    <Note key={username} username={username} content={content} color={color} submissionDate={submissionDate}></Note>
+                ))}
             </div>
         </div>
     );
