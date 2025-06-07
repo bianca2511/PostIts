@@ -7,6 +7,13 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --color-pink: rgb(254, 109, 194);
+  --color-orange: orange;
+  --color-yellow: yellow;
+  --color-green: rgb(97, 243, 97);
+  --color-blue: skyblue;
+  --color-purple: rgb(213, 145, 255);
 }
 
 * {

@@ -1,67 +1,76 @@
 @import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 .note {
-    width: 18em;
-    aspect-ratio: 1/1;
-    /* background-color: rgb(247, 63, 161); */
-    color: black;
-    display: flex;
-    flex-direction: column;
-    margin: 1em;
-    padding: 1em;
-    box-shadow: 0px 5px 5px -2px rgb(50, 50, 50);
-    position: relative;
+  width: 18em;
+  aspect-ratio: 1/1;
+  /* background-color: rgb(247, 63, 161); */
+  color: black;
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+  padding: 1em;
+  box-shadow: 0px 5px 5px -2px rgb(50, 50, 50);
+  position: relative;
+
+  background-color: var(--bg-color);
 }
 
 .note-pin {
-    background-image: url(../assets/pin.png);
-    width: 3em;
-    height: 3em;
-    z-index: 2;
-    background-size: contain;
-    background-repeat: no-repeat;
-    position: absolute;
-    top: 0em;
-    left: 50%;
-    transform: translateX(-50%);
+  background-image: url(../assets/pin.png);
+  width: 3em;
+  height: 3em;
+  z-index: 2;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0em;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .note-author {
-    font-family: "Fuzzy Bubbles", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    margin-block: 0.5em;
+  font-family: "Fuzzy Bubbles", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  margin-block: 0.5em;
 }
 
 .note-content {
-    text-align: left;
-    text-align: justify;
-    margin-block: 0.5em;
-    font-family: "Inter", sans-serif;
-    font-weight: 400;
-    word-wrap: break-word;
+  text-align: left;
+  text-align: justify;
+  margin-block: 0.5em;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.note-date {
+  text-align: end;
+  margin-top: auto;
+  margin-bottom: 0;
+  color: hsl(from var(--bg-color) h s calc(0.5 * l));
 }
 
 .pink {
-  background-color: magenta;
+  --bg-color: var(--color-pink);
 }
 
 .orange {
-  background-color: orange;
+  --bg-color: var(--color-orange);
 }
 
 .yellow {
-  background-color: yellow;
+  --bg-color: var(--color-yellow);
 }
 
 .green {
-  background-color: yellowgreen;
+  --bg-color: var(--color-green);
 }
 
 .blue {
-  background-color: lightskyblue;
+  --bg-color: var(--color-blue);
 }
 
 .purple {
-  background-color: violet;
+  --bg-color: var(--color-purple);
 }

@@ -51,35 +51,12 @@
   transition: border 0.5s ease-in-out;
   margin-block: 1em;
   position: relative;
+
+  background-color: var(--bg-color);
 }
 
 .color-circle.selected {
   transform: scale(1.4);
   transition: transform 0.2s ease;
   box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.698);
-}
-
-
-.pink {
-  background-color: magenta;
-}
-
-.orange {
-  background-color: orange;
-}
-
-.yellow {
-  background-color: yellow;
-}
-
-.green {
-  background-color: yellowgreen;
-}
-
-.blue {
-  background-color: lightskyblue;
-}
-
-.purple {
-  background-color: violet;
 }
