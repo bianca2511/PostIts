@@ -7,6 +7,8 @@ export default function Input({reloadNotes}) {
     const [username, setUsername] = useState("");
     const [selectedColor, setSelectedColor] = useState('pink');
     const [inputPlaceholder, setInputPlaceholder] = useState('Today was a great day!');
+    const [submitted, setSubmitted] = useState(false); // keep state of wether text in submission box stays read only after submit
+
 
     const submitText = async () => {
         const submissionDate = new Date();
@@ -21,8 +23,9 @@ export default function Input({reloadNotes}) {
         if (response.ok) {
             const result = await response;
             console.log("Successfully sent", result);
+            setSubmitted(true);
             setInputPlaceholder("Post It submitted this week :)");
-            setContent("");
+            // setContent("");
             reloadNotes();
 
         } else {
@@ -36,7 +39,7 @@ export default function Input({reloadNotes}) {
         <div className={`input-box ${selectedColor}`}>
             <h2 className='input-prompt'>How was your week, {username}?</h2>
             <input placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value)} className={`input-field`}></input>
-            <textarea rows="15" cols="45" placeholder={inputPlaceholder} autoFocus value={content} onChange={(e) => setContent(e.target.value)} className={`input-field`}></textarea>
+            <textarea rows="15" cols="45" placeholder={inputPlaceholder} autoFocus value={content} onChange={(e) => setContent(e.target.value)} className={`input-field`} readOnly={submitted}></textarea>
             <div className='color-picker'>
                 {['pink', 'orange', 'yellow', 'green', 'blue', 'purple'].map(color => (
                     <div

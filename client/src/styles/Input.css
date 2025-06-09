@@ -32,6 +32,12 @@
   font-size: small;
 }
 
+/* style if i make the fields read only after submitting */
+.input-field.true {
+  background-color: var(--bg-color);
+  border-bottom: 1px solid white;
+}
+
 .input-box {
   padding: 2em;
   height: min-content;
