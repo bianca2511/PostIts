@@ -53,13 +53,14 @@ export default function Board() {
                 ))}
             </div>
 
-            <dialog ref={noteDialogRef}>
+            <dialog className='note-dialog-box' ref={noteDialogRef}>
                 {selectedNote && (<div className="note-dialog-content">
                     <Note key={selectedNote.username} username={selectedNote.username}
                         content={selectedNote.content}
                         color={selectedNote.color}
                         submissionDate={selectedNote.submissionDate}
-                        onClick={() => toggleExpandedNote()}></Note>
+                        onClick={() => toggleExpandedNote()}
+                        className='dialog'></Note>
                 </div>)
                 }
             </dialog>

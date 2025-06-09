@@ -1,6 +1,6 @@
 import '../styles/Note.css'
 
-function Note({ username, content, color, submissionDate, onClick }) {
+function Note({ username, content, color, submissionDate, onClick, className='' }) {
 
     const formattedDate = new Intl.DateTimeFormat('en-NL', {
         dateStyle: "full"
@@ -8,7 +8,8 @@ function Note({ username, content, color, submissionDate, onClick }) {
 
     return (
         // pass the onClick method to the div itself, not the whole component in Board
-        <div className={`note ${color}`} onClick={onClick}>
+        // pass the className prop to differentiate the normal note from the one in the dialog element
+        <div className={`note ${color} ${className}`} onClick={onClick}>
             <div className='note-pin'></div>
             <h2 className="note-author">{username}</h2>
             <p className="note-content">{content}</p>

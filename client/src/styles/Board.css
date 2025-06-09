@@ -22,3 +22,20 @@
     margin-inline: auto;
     /* make the notes not stretch vertically*/
 }
+
+.note-dialog-box {
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+}
+
+::backdrop {
+    background-color: rgba(0, 0, 0, 0.342);
+}
+
+
+/*apply only to the note in the dialog box */
+.note.dialog {
+    width: 30em;
+    padding: 1.5em;
+}
