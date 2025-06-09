@@ -7,6 +7,7 @@ import '../styles/Board.css'
 export default function Board() {
     const [notes, setNotes] = useState({});
     const noteDialogRef = useRef(null); // create a reference to the dialog node in the DOM
+    const [selectedNote, setSelectedNote] = useState(null);
 
     const reloadNotes = () => {
         fetch('http://localhost:3000/api/notes')
@@ -27,12 +28,19 @@ export default function Board() {
     }
     useEffect(reloadNotes, []);
 
-    function toggleExpandedNote() {
-        if(!noteDialogRef.current) {
+    function toggleExpandedNote(note) {
+
+        setSelectedNote(note);
+        if (!noteDialogRef.current) {
             return;
         }
 
-        noteDialogRef.current.hasAttribute("open") ? noteDialogRef.current.close() : noteDialogRef.current.showModal();
+        if (noteDialogRef.current.hasAttribute('open')) {
+            noteDialogRef.current.close();
+            setSelectedNote(null);
+        } else {
+            noteDialogRef.current.showModal();
+        }
     }
 
     return (
@@ -40,13 +48,21 @@ export default function Board() {
             <Input reloadNotes={reloadNotes}></Input>
             <div className='notes'>
                 {Object.entries(notes).map(([username, { content, color, submissionDate }]) => (
-                    <Note key={username} onClick={toggleExpandedNote} username={username} content={content} color={color} submissionDate={submissionDate}></Note>
+                    <Note key={username} onClick={() => toggleExpandedNote({ username, content, color, submissionDate })}
+                        username={username} content={content} color={color} submissionDate={submissionDate}></Note>
                 ))}
             </div>
 
-        <dialog ref={noteDialogRef}>
-            Hello Word!
-        </dialog>
+            <dialog ref={noteDialogRef}>
+                {selectedNote && (<div className="note-dialog-content">
+                    <Note key={selectedNote.username} username={selectedNote.username}
+                        content={selectedNote.content}
+                        color={selectedNote.color}
+                        submissionDate={selectedNote.submissionDate}
+                        onClick={() => toggleExpandedNote()}></Note>
+                </div>)
+                }
+            </dialog>
         </div>
     );
 }
