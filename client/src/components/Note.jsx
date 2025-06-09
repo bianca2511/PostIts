@@ -1,6 +1,19 @@
 import '../styles/Note.css'
 
-function Note({ username, content, color, submissionDate, onClick, className='' }) {
+function Note({ username, content, color, submissionDate, onClick, className = '', expanded }) {
+
+    // If note content is too long, create preview of the text when in non expanded form
+    let previewContent = content;
+    let characterThreshold = 150;
+
+    if (!expanded && content.length > characterThreshold) {
+        previewContent = content.slice(0, characterThreshold) + "...";
+    }
+
+    else if (expanded) {
+        previewContent = content;
+    }
+
 
     const formattedDate = new Intl.DateTimeFormat('en-NL', {
         dateStyle: "full"
@@ -12,7 +25,7 @@ function Note({ username, content, color, submissionDate, onClick, className='' 
         <div className={`note ${color} ${className}`} onClick={onClick}>
             <div className='note-pin'></div>
             <h2 className="note-author">{username}</h2>
-            <p className="note-content">{content}</p>
+            <p className="note-content">{previewContent}</p>
             <p className='note-date'>{formattedDate}</p>
         </div>
     )

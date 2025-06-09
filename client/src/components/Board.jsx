@@ -8,6 +8,7 @@ export default function Board() {
     const [notes, setNotes] = useState({});
     const noteDialogRef = useRef(null); // create a reference to the dialog node in the DOM
     const [selectedNote, setSelectedNote] = useState(null);
+    const [expanded, setExpanded] = useState(false); // record if note is in expanded state for creating preview in normal state
 
     const reloadNotes = () => {
         fetch('http://localhost:3000/api/notes')
@@ -38,8 +39,10 @@ export default function Board() {
         if (noteDialogRef.current.hasAttribute('open')) {
             noteDialogRef.current.close();
             setSelectedNote(null);
+            setExpanded(false);
         } else {
             noteDialogRef.current.showModal();
+            setExpanded(true);
         }
     }
 
@@ -60,7 +63,8 @@ export default function Board() {
                         color={selectedNote.color}
                         submissionDate={selectedNote.submissionDate}
                         onClick={() => toggleExpandedNote()}
-                        className='dialog'></Note>
+                        className='dialog'
+                        expanded={expanded}></Note>
                 </div>)
                 }
             </dialog>
