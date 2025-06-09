@@ -56,13 +56,16 @@ export default function Board() {
                 ))}
             </div>
 
-            <dialog className='note-dialog-box' ref={noteDialogRef}>
+            <dialog className='note-dialog-box' ref={noteDialogRef} onClick={(e) => {
+                if(e.currentTarget === e.target) // if user clicks outside the post it, it gets closed
+                    toggleExpandedNote();
+            }}>
                 {selectedNote && (<div className="note-dialog-content">
                     <Note key={selectedNote.username} username={selectedNote.username}
                         content={selectedNote.content}
                         color={selectedNote.color}
                         submissionDate={selectedNote.submissionDate}
-                        onClick={() => toggleExpandedNote()}
+                        // onClick={() => toggleExpandedNote()}
                         className='dialog'
                         expanded={expanded}></Note>
                 </div>)
