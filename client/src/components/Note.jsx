@@ -23,7 +23,15 @@ function Note({ username, content, color, submissionDate, onClick, className = '
         // pass the onClick method to the div itself, not the whole component in Board
         // pass the className prop to differentiate the normal note from the one in the dialog element
         <div className={`note ${color} ${className}`} onClick={onClick}>
-            <div className='note-pin'></div>
+            {/* {expanded && (
+                <button className="note-close-btn" onClick={(e) => {
+                    e.stopPropagation(); // prevent note click from toggling
+                    onClick();
+                }}>
+                    x
+                </button>)} */}
+            {!expanded && (
+                <div className='note-pin'></div>)}
             <h2 className="note-author">{username}</h2>
             <p className="note-content">{previewContent}</p>
             <p className='note-date'>{formattedDate}</p>
