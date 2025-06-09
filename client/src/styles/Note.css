@@ -14,6 +14,10 @@
   background-color: var(--bg-color);
 }
 
+.note:not(.dialog):hover {
+  transform: rotate(2deg);
+}
+
 .note-pin {
   background-image: url(../assets/pin.png);
   width: 3em;
@@ -73,3 +77,5 @@
 .purple {
   --bg-color: var(--color-purple);
 }
+
+
