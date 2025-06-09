@@ -46,7 +46,7 @@ export default function Input({reloadNotes}) {
                     ></div>
                 ))}
             </div>
-            <button type="submit" className="submit-button" onClick={submitText}>Submit</button>
+            <button type="submit" className={`submit-button ${selectedColor}`} onClick={submitText}>Submit</button>
         </div>
     )
 }

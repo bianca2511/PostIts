@@ -2,8 +2,8 @@
 
 .submit-button {
   color: black;
-  --submit-button-color: rgb(115, 255, 9);
-  background-color: var(--submit-button-color);
+  /* --submit-button-color: rgb(115, 255, 9); */
+  background-color: var(--bg-color);
   text-align: center;
   padding: 0.5em 0.8em;
   font-size: 1em;
@@ -13,7 +13,7 @@
 }
 
 .submit-button:hover {
-  background-color: hsl(from var(--submit-button-color) h s calc(0.9*l));
+  background-color: hsl(from var(--bg-color) h s calc(0.9*l));
 }
 
 .submit-button:active {
