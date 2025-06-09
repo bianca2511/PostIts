@@ -3,7 +3,7 @@
 .submit-button {
   color: black;
   /* --submit-button-color: rgb(115, 255, 9); */
-  background-color: var(--bg-color);
+  background-color: var(--input-bg-color);
   text-align: center;
   padding: 0.5em 0.8em;
   font-size: 1em;
@@ -13,7 +13,7 @@
 }
 
 .submit-button:hover {
-  background-color: hsl(from var(--bg-color) h s calc(0.9*l));
+  background-color: hsl(from var(--bg-color) h s l);
 }
 
 .submit-button:active {
@@ -25,13 +25,12 @@
   border: 0;
   color: black;
   padding: 1em;
-  margin-block:0.2em;
+  margin-block: 0.2em;
   resize: none;
   height: auto;
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: small;
-
 }
 
 .input-box {
@@ -41,7 +40,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: rgb(251, 246, 167);
+  background-color: var(--bg-color);
+  /* background-color: rgb(251, 246, 167); */
   box-shadow: 0px 5px 5px -2px rgb(50, 50, 50);
   margin: 1em;
 }
