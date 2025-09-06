@@ -4,7 +4,7 @@ import Note from './Note'
 import Input from './Input';
 import '../styles/Board.css'
 
-export default function Board() {
+export default function Board({user}) {
     const [notes, setNotes] = useState({});
     const noteDialogRef = useRef(null); // create a reference to the dialog node in the DOM
     const [selectedNote, setSelectedNote] = useState(null);
@@ -48,7 +48,7 @@ export default function Board() {
 
     return (
         <div className='note-board'>
-            <Input reloadNotes={reloadNotes}></Input>
+            <Input reloadNotes={reloadNotes} user={user}></Input>
             <div className='notes'>
                 {Object.entries(notes).map(([username, { content, color, submissionDate }]) => (
                     <Note key={username} onClick={() => toggleExpandedNote({ username, content, color, submissionDate })}

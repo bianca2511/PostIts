@@ -5,15 +5,15 @@ import { useState } from 'react'
 import { GoogleOAuthProvider } from '@react-oauth/google'
 
 function App() {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const handleLoginSuccess = () => {
-        setIsAuthenticated(true);
-        console.log("Authentacted");
+    const [authenticatedUser, setAuthenticatedUser] = useState(null);
+        const handleLoginSuccess = (user) => {
+        setAuthenticatedUser(user);
+        console.log("Authentacted", user);
         // store user info
     }
     return (
         <GoogleOAuthProvider clientId='425007287387-119id7q79brob846m001vikqhjpkns0o.apps.googleusercontent.com'>
-            {isAuthenticated ? <Board></Board> : <LoginPage success={handleLoginSuccess}></LoginPage>}
+            {authenticatedUser != null ? <Board user={authenticatedUser}></Board> : <LoginPage success={handleLoginSuccess}></LoginPage>}
         </GoogleOAuthProvider>
     )
 }
