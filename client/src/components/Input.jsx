@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import '../styles/Input.css'
 
-export default function Input({reloadNotes, user}) {
+export default function Input({ reloadNotes, user, onLogout }) {
 
     const [content, setContent] = useState("");
     const [selectedColor, setSelectedColor] = useState('pink');
@@ -37,6 +37,7 @@ export default function Input({reloadNotes, user}) {
 
     return (
         <div className={`input-box ${selectedColor}`}>
+            <button onClick={onLogout}>Logout</button>
             <h2 className='input-prompt'>How was your week, {username}?</h2>
             {/* <input placeholder='Username' value={username} className={`input-field`}></input> */}
             <textarea rows="15" cols="45" placeholder={inputPlaceholder} autoFocus value={content} onChange={(e) => setContent(e.target.value)} className={`input-field`}></textarea>

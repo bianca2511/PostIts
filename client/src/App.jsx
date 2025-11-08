@@ -7,11 +7,19 @@ import { useEffect } from 'react'
 
 function App() {
     const [authenticatedUser, setAuthenticatedUser] = useState(null);
-        const handleLoginSuccess = (user) => {
+    const handleLoginSuccess = (user) => {
         setAuthenticatedUser(user);
         console.log("Authentacted", user);
         // store user info
     }
+
+    const handleLogout = async () => {
+        await fetch('http://localhost:3000/api/auth/logout', {
+            method: 'POST',
+            credentials: 'include'
+        });
+        setAuthenticatedUser(null); // drop user from state
+    };
 
     useEffect(() => {
         // try restore session
@@ -22,12 +30,12 @@ function App() {
             .then(data => {
                 if (data?.user) setAuthenticatedUser(data.user);
             })
-            .catch(() => {});
+            .catch(() => { });
     }, []);
 
     return (
         <GoogleOAuthProvider clientId='425007287387-119id7q79brob846m001vikqhjpkns0o.apps.googleusercontent.com'>
-            {authenticatedUser != null ? <Board user={authenticatedUser}></Board> : <LoginPage success={handleLoginSuccess}></LoginPage>}
+            {authenticatedUser != null ? <Board user={authenticatedUser} onLogout={handleLogout}></Board> : <LoginPage success={handleLoginSuccess}></LoginPage>}
         </GoogleOAuthProvider>
     )
 }

@@ -4,7 +4,7 @@ import Note from './Note'
 import Input from './Input';
 import '../styles/Board.css'
 
-export default function Board({user}) {
+export default function Board({ user, onLogout }) {
     const [notes, setNotes] = useState({});
     const noteDialogRef = useRef(null); // create a reference to the dialog node in the DOM
     const [selectedNote, setSelectedNote] = useState(null);
@@ -48,7 +48,9 @@ export default function Board({user}) {
 
     return (
         <div className='note-board'>
-            <Input reloadNotes={reloadNotes} user={user}></Input>
+            <div className="board-header">
+            </div>
+            <Input reloadNotes={reloadNotes} user={user} onLogout={onLogout}></Input>
             <div className='notes'>
                 {Object.entries(notes).map(([username, { content, color, submissionDate }]) => (
                     <Note key={username} onClick={() => toggleExpandedNote({ username, content, color, submissionDate })}
@@ -57,7 +59,7 @@ export default function Board({user}) {
             </div>
 
             <dialog className='note-dialog-box' ref={noteDialogRef} onClick={(e) => {
-                if(e.currentTarget === e.target) // if user clicks outside the post it, it gets closed
+                if (e.currentTarget === e.target) // if user clicks outside the post it, it gets closed
                     toggleExpandedNote();
             }}>
                 {selectedNote && (<div className="note-dialog-content">
@@ -71,6 +73,7 @@ export default function Board({user}) {
                 </div>)
                 }
             </dialog>
+
         </div>
     );
 }
