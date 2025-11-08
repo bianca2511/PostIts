@@ -16,6 +16,7 @@ export default function Input({reloadNotes, user}) {
             headers: {
                 'Content-Type': 'application/json',
             },
+            credentials: 'include',
             body: JSON.stringify({ username: username, content: content, color: selectedColor, submissionDate: submissionDate })
         });
 

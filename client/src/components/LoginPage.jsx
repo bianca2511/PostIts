@@ -1,18 +1,26 @@
 import React from 'react';
 import { GoogleLogin } from '@react-oauth/google';
-import { jwtDecode } from "jwt-decode";
 import "../styles/Login.css"
 
 function LoginPage({ success }) {
-    const responseMessage = (response) => {
-        console.log(response);
-        const jwtoken = response.credential;
-        const decoded = jwtDecode(jwtoken);
-        let user = {
-            email: decoded.email,
-            name: decoded.given_name
+    const responseMessage = async (response) => {
+        try {
+            const credential = response.credential;
+            const res = await fetch('http://localhost:3000/api/auth/google', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                body: JSON.stringify({ credential })
+            });
+            if (!res.ok) {
+                throw new Error('Auth failed');
+            }
+            const data = await res.json();
+            success(data.user);
+        } catch (e) {
+            console.error(e);
+            alert("Login Failed! Try again :)");
         }
-        success(user);
     };
     const errorMessage = (error) => {
         console.log(error);

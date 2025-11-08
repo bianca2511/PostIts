@@ -11,7 +11,7 @@ export default function Board({user}) {
     const [expanded, setExpanded] = useState(false); // record if note is in expanded state for creating preview in normal state
 
     const reloadNotes = () => {
-        fetch('http://localhost:3000/api/notes')
+        fetch('http://localhost:3000/api/notes', { credentials: 'include' })
             .then((res) => {
                 if (!res.ok) {
                     throw new Error("Failed to fetch notes");
