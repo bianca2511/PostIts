@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import '../styles/Note.css'
 
-function Note({ username, content, color, submissionDate, onClick, className = '', expanded }) {
+function Note({ username, displayName, content, color, submissionDate, onClick, className = '', expanded }) {
 
     // If note content is too long, create preview of the text when in non expanded form
     let previewContent = content;
@@ -32,7 +33,7 @@ function Note({ username, content, color, submissionDate, onClick, className = '
                 </button>)} */}
             {!expanded && (
                 <div className='note-pin'></div>)}
-            <h2 className="note-author">{username}</h2>
+            <h2 className="note-author">{displayName}</h2>
             <p className="note-content">{previewContent}</p>
             <p className='note-date'>{formattedDate}</p>
         </div>

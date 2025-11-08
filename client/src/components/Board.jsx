@@ -50,11 +50,11 @@ export default function Board({ user, onLogout }) {
         <div className='note-board'>
             <div className="board-header">
             </div>
-            <Input reloadNotes={reloadNotes} user={user} onLogout={onLogout}></Input>
+            <Input reloadNotes={reloadNotes} user={user} onLogout={onLogout} hasSubmitted={Boolean(notes[user.email])}></Input>
             <div className='notes'>
-                {Object.entries(notes).map(([username, { content, color, submissionDate }]) => (
-                    <Note key={username} onClick={() => toggleExpandedNote({ username, content, color, submissionDate })}
-                        username={username} content={content} color={color} submissionDate={submissionDate}></Note>
+                {Object.entries(notes).map(([username, { displayName, content, color, submissionDate }]) => (
+                    <Note key={username} onClick={() => toggleExpandedNote({ username, displayName, content, color, submissionDate })}
+                        username={username} displayName={displayName} content={content} color={color} submissionDate={submissionDate}></Note>
                 ))}
             </div>
 
@@ -63,7 +63,8 @@ export default function Board({ user, onLogout }) {
                     toggleExpandedNote();
             }}>
                 {selectedNote && (<div className="note-dialog-content">
-                    <Note key={selectedNote.username} username={selectedNote.username}
+                    <Note key={selectedNote.username}
+                        displayName={selectedNote.displayName}
                         content={selectedNote.content}
                         color={selectedNote.color}
                         submissionDate={selectedNote.submissionDate}

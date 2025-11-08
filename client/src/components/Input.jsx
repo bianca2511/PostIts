@@ -1,15 +1,20 @@
 import { useState } from 'react'
 import '../styles/Input.css'
 
-export default function Input({ reloadNotes, user, onLogout }) {
+export default function Input({ reloadNotes, user, onLogout, hasSubmitted }) {
 
     const [content, setContent] = useState("");
     const [selectedColor, setSelectedColor] = useState('pink');
     const [inputPlaceholder, setInputPlaceholder] = useState('Today was a great day!');
-    const [submitted, setSubmitted] = useState(false); // keep state of wether text in submission box stays read only after submit
-
-    let username = user.name;
+    // TODO: make it so that a second submission becomes an edit
+    // maybe minimize the input box
+    let displayName = user.name;
+    let username = user.email;
     const submitText = async () => {
+        if (hasSubmitted) {
+            alert("You have already submitted a note for this week!");
+            return; // prevent multiple submissions
+        }
         const submissionDate = new Date();
         const response = await fetch("http://localhost:3000/api/notes", {
             method: "POST",
@@ -17,14 +22,12 @@ export default function Input({ reloadNotes, user, onLogout }) {
                 'Content-Type': 'application/json',
             },
             credentials: 'include',
-            body: JSON.stringify({ username: username, content: content, color: selectedColor, submissionDate: submissionDate })
+            body: JSON.stringify({ username: username, displayName: displayName, content: content, color: selectedColor, submissionDate: submissionDate })
         });
 
         if (response.ok) {
             const result = await response;
             console.log("Successfully sent", result);
-            setSubmitted(true);
-            setInputPlaceholder("Post It submitted this week :)");
             setContent("");
             reloadNotes();
 
@@ -38,7 +41,7 @@ export default function Input({ reloadNotes, user, onLogout }) {
     return (
         <div className={`input-box ${selectedColor}`}>
             <button onClick={onLogout}>Logout</button>
-            <h2 className='input-prompt'>How was your week, {username}?</h2>
+            <h2 className='input-prompt'>How was your week, {displayName}?</h2>
             {/* <input placeholder='Username' value={username} className={`input-field`}></input> */}
             <textarea rows="15" cols="45" placeholder={inputPlaceholder} autoFocus value={content} onChange={(e) => setContent(e.target.value)} className={`input-field`}></textarea>
             <div className='color-picker'>

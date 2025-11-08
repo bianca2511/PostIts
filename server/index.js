@@ -88,6 +88,7 @@ app.get("/api/notes",authMiddleware, (req, res) => {
             const notes = {};
             rows.forEach(row => {
                 notes[row.username] = {
+                    displayName: row.displayName,
                     content: row.content,
                     color: row.color,
                     submissionDate: row.date,
@@ -103,9 +104,10 @@ app.get("/api/notes",authMiddleware, (req, res) => {
     // Post a new note
     app.post("/api/notes", authMiddleware, (req, res) => {
         let { content, color, submissionDate } = req.body;
-        let username = req.user.name;
+        let username = req.user.email;
+        let displayName = req.user.name;
         let currentWeekStart = req.currentWeekStart;
-        console.log("Received:", { username, content, color, submissionDate });
+        console.log("Received:", { username, displayName, content, color, submissionDate });
 
 
         if (!username || !content || username === "" || content === "") {
@@ -113,12 +115,12 @@ app.get("/api/notes",authMiddleware, (req, res) => {
         }
 
         const insertQuery = `
-        INSERT INTO notes (username, content, color, date, currentWeekStart)
-        VALUES (?, ?, ?, ?,?)
+        INSERT INTO notes (username, displayName, content, color, date, currentWeekStart)
+        VALUES (?, ?, ?, ?,?, ?)
         `;
         // let currentWeekStart = getCurrentWeekStart(); // Get currentWeekStart when the request is made
         // Add current week to the database
-        db.run(insertQuery, [username, content, color, submissionDate, currentWeekStart], function (err) {
+        db.run(insertQuery, [username, displayName, content, color, submissionDate, currentWeekStart], function (err) {
             if (err) {
                 console.error('DB error:', err);
                 return res.status(500).json({ error: 'Database error' });

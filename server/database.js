@@ -5,6 +5,7 @@ db.serialize(() => {
     db.run(`
     CREATE TABLE IF NOT EXISTS notes (
       username TEXT,
+      displayName TEXT,
       content TEXT,
       color TEXT,
       date DATE,
